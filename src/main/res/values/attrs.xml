@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="auto">
+        <attr name="auto_baseWidth" format="enum">
+            <enum name="self" value="-1" />
+            <enum name="height" value="1" />
+        </attr>
+        <attr name="auto_baseHeight" format="enum">
+            <enum name="self" value="-1" />
+            <enum name="width" value="2" />
+        </attr>
+        <attr name="auto_isDefault" format="boolean" />
+    </declare-styleable>
+</resources>
