@@ -1,9 +1,11 @@
 package com.xz.autoLayout.attr;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.xz.autoLayout.AutoLayoutManager;
+import com.xz.autoLayout.AutoLinearLayout;
 
 
 /**
@@ -22,11 +24,14 @@ public class WidthAttr extends AutoAttr {
             return;
         }
         ViewGroup.LayoutParams lp = view.getLayoutParams();
+
         if (baseWidth == WIDTH) {
             lp.width = (int) (size * AutoLayoutManager.getWidthPercent());
         } else if (baseWidth == HEIGHT) {
             lp.width = (int) (size * AutoLayoutManager.getHeightPercent());
         }
+
+
 
     }
 }

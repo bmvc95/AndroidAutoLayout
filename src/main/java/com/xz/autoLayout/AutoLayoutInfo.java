@@ -1,5 +1,6 @@
 package com.xz.autoLayout;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,6 +26,7 @@ import com.xz.autoLayout.attr.WidthAttr;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
