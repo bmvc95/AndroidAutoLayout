@@ -2,6 +2,7 @@ package com.xz.autoLayout;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -14,8 +15,6 @@ import java.lang.reflect.Field;
 public class AutoLayoutManager {
 
 
-    private static float landWidthPercent;
-    private static float landHeightPercent;
 
     private static float portWidthPercent;
     private static float portHeightPercent;
@@ -24,15 +23,6 @@ public class AutoLayoutManager {
     private static float heightPercent;
 
     public static void init(Context context, int width, int height, boolean containStatusBar) {
-        try {
-            Field filed = View.class.getDeclaredField("mDebugViewAttributes");
-            filed.setAccessible(true);
-            View v = new View(context);
-            filed.setBoolean(v, true);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -45,8 +35,8 @@ public class AutoLayoutManager {
         portWidthPercent = deviceWidth * 1f / width;
         portHeightPercent = deviceHeight * 1f / height;
 
-        landWidthPercent = deviceHeight * 1f / height;
-        landHeightPercent = deviceWidth * 1f / width;
+
+
         setScreenPortrait(true);
     }
 
@@ -55,8 +45,8 @@ public class AutoLayoutManager {
             widthPercent = portWidthPercent;
             heightPercent = portHeightPercent;
         } else {
-            heightPercent = landHeightPercent;
-            widthPercent = landWidthPercent;
+            heightPercent = portWidthPercent;
+            widthPercent = portHeightPercent;
         }
     }
 
