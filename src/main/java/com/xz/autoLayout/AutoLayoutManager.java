@@ -39,7 +39,7 @@ public class AutoLayoutManager {
         wm.getDefaultDisplay().getMetrics(displayMetrics);
         int deviceWidth = displayMetrics.widthPixels;
         int deviceHeight = displayMetrics.heightPixels - AutoUtil.getNavigationBarHeight(context);
-        if (!containStatusBar) {
+        if (containStatusBar) {
             deviceHeight -= AutoUtil.getStatusBarHeight(context);
         }
         portWidthPercent = deviceWidth * 1f / width;
