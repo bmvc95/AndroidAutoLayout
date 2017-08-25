@@ -24,23 +24,27 @@ public class AutoFrameLayout extends FrameLayout implements IAuto {
 
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
+        init();
     }
 
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
+        init();
     }
 
 
-    @Override
-    public void setLayoutParams(ViewGroup.LayoutParams params) {
-        super.setLayoutParams(params);
-        AutoUtil.auto(this);
+    private void init(){
+        post(new Runnable() {
+            @Override
+            public void run() {
+                AutoUtil.auto(AutoFrameLayout.this);
+            }
+        });
     }
 
     @Override

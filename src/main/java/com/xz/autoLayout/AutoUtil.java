@@ -322,7 +322,7 @@ public class AutoUtil {
             } else if (base == HEIGHT) {
                 size = (int) (size * AutoLayoutManager.getHeightPercent());
             }
-            Log.d("xz", "w=" + size);
+
             lp.width = size;
         }
     }
@@ -339,7 +339,7 @@ public class AutoUtil {
             } else if (base == HEIGHT) {
                 size = (int) (size * AutoLayoutManager.getHeightPercent());
             }
-            Log.d("xz", "h=" + size);
+
             lp.height = size;
         }
     }
