@@ -15,6 +15,7 @@ public class MarginTopAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
     @Override
     public void auto(View v) {
         if (isDefault||baseHeight==SELF) {
@@ -30,13 +31,8 @@ public class MarginTopAttr extends AutoAttr {
 
 
 
-
-        if (baseHeight == WIDTH) {
+        if (baseHeight == WIDTH||!isVertical) {
             top = (int) (size * AutoLayoutManager.getWidthPercent());
-
-
-        } else if (baseHeight == SELF) {
-            top = lp.topMargin;
         }
 
         lp.topMargin = top;

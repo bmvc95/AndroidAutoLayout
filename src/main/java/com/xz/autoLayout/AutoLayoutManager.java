@@ -14,6 +14,12 @@ import java.lang.reflect.Field;
 public class AutoLayoutManager {
 
 
+    private static float landWidthPercent;
+    private static float landHeightPercent;
+
+    private static float portWidthPercent;
+    private static float portHeightPercent;
+
     private static float widthPercent;
     private static float heightPercent;
 
@@ -32,12 +38,26 @@ public class AutoLayoutManager {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(displayMetrics);
         int deviceWidth = displayMetrics.widthPixels;
-        int deviceHeight = displayMetrics.heightPixels;
+        int deviceHeight = displayMetrics.heightPixels - AutoUtil.getNavigationBarHeight(context);
         if (!containStatusBar) {
             deviceHeight -= AutoUtil.getStatusBarHeight(context);
         }
-        widthPercent = deviceWidth * 1f / width;
-        heightPercent = deviceHeight * 1f / height;
+        portWidthPercent = deviceWidth * 1f / width;
+        portHeightPercent = deviceHeight * 1f / height;
+
+        landWidthPercent = deviceHeight * 1f / height;
+        landHeightPercent = deviceWidth * 1f / width;
+        setScreenPortrait(true);
+    }
+
+    public static void setScreenPortrait(boolean b) {
+        if (b) {
+            widthPercent = portWidthPercent;
+            heightPercent = portHeightPercent;
+        } else {
+            heightPercent = landHeightPercent;
+            widthPercent = landWidthPercent;
+        }
     }
 
     public static float getWidthPercent() {

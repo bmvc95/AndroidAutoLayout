@@ -14,6 +14,9 @@ public class MinWidthAttr extends AutoAttr {
     public MinWidthAttr(boolean isDefault, int baseWidth, int baseHeight, float size) {
         super(isDefault, baseWidth, baseHeight, size);
     }
+
+
+
     @Override
     public void auto(View v) {
         if (isDefault || baseWidth == SELF) {

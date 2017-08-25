@@ -269,9 +269,9 @@ public class AutoLayoutInfo {
                 }
             }
         }
-        if(iAuto!=null){
+        if (iAuto != null) {
             List<AutoAttr> list = iAuto.getAttrs(attrs);
-            if(list!=null&&list.size()>0){
+            if (list != null && list.size() > 0) {
                 autoAttrs.addAll(list);
             }
         }
@@ -279,6 +279,10 @@ public class AutoLayoutInfo {
     }
 
     public void execute(View v) {
+        if(v instanceof IAuto){
+            AutoLayoutManager.setScreenPortrait(AutoUtil.isScreenOriatationPortrait(v.getContext()));
+        }
+
         try {
             Field filed = v.getClass().getField("mAttributes");
             filed.setAccessible(true);
@@ -298,20 +302,19 @@ public class AutoLayoutInfo {
 
     private void adjustChildren(View v) {
         if (v instanceof ViewGroup) {
-
             int count = ((ViewGroup) v).getChildCount();
             for (int i = 0; i < count; i++) {
                 View v1 = ((ViewGroup) v).getChildAt(i);
                 Class<?> c = v1.getClass();//得到Dog对应的Class对象
                 Class<?> interfaces[] = c.getInterfaces();//获得Dog所实现的所有接口
-                boolean isContinue=false;
+                boolean isContinue = false;
                 for (Class<?> inte : interfaces) {//打印
                     if (inte == IAuto.class) {
-                        isContinue=true;
+                        isContinue = true;
                         break;
                     }
                 }
-                if(isContinue){
+                if (isContinue) {
                     continue;
                 }
                 AutoLayoutInfo layoutInfo = new AutoLayoutInfo(null);

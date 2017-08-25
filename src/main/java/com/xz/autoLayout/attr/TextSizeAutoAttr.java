@@ -16,18 +16,19 @@ public class TextSizeAutoAttr extends AutoAttr {
         super( isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View view) {
         if(isDefault||baseHeight==SELF){
             return;
         }
         if(view instanceof TextView){
-            float textSize;
+            float  textSize  = AutoLayoutManager.getHeightPercent()*size;
             if(baseHeight==WIDTH){
                 textSize = AutoLayoutManager.getWidthPercent()*size;
-            }else{
-                textSize = AutoLayoutManager.getHeightPercent()*size;
             }
+
             ((TextView) view).setIncludeFontPadding(false);
             ((TextView) view).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         }

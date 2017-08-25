@@ -14,6 +14,8 @@ public class MinHeightAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if (isDefault || baseHeight == SELF) {

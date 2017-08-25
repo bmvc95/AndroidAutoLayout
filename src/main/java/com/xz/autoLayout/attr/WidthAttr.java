@@ -18,6 +18,7 @@ public class WidthAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
     @Override
     public void auto(View view) {
         if (isDefault || baseWidth == SELF) {
@@ -30,8 +31,6 @@ public class WidthAttr extends AutoAttr {
         } else if (baseWidth == HEIGHT) {
             lp.width = (int) (size * AutoLayoutManager.getHeightPercent());
         }
-
-
 
     }
 }

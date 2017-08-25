@@ -15,13 +15,16 @@ public class HeightAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View view) {
         if (isDefault||baseHeight==SELF) {
             return;
         }
         ViewGroup.LayoutParams lp = view.getLayoutParams();
-        if(baseHeight==WIDTH){
+
+        if(baseHeight==WIDTH||!isVertical){
             lp.height = (int) (size * AutoLayoutManager.getWidthPercent());
         }else if(baseHeight==HEIGHT){
             lp.height = (int) (size * AutoLayoutManager.getHeightPercent());

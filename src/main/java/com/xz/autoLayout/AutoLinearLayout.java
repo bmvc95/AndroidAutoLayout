@@ -40,6 +40,8 @@ public class AutoLinearLayout extends LinearLayout implements IAuto {
     public List<AutoAttr> getAttrs(String[] attrs) {
         return null;
     }
+
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         AutoLayoutInfo autoLayoutInfo = new AutoLayoutInfo(this);

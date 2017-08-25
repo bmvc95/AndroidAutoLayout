@@ -14,16 +14,18 @@ public class PaddingAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
     @Override
     public void auto(View v) {
         if (isDefault) {
             return;
         }
-        int left = 0, top = 0, right = 0, bottom = 0;
-        left = (int) (size * AutoLayoutManager.getWidthPercent());
-        top = (int) (size * AutoLayoutManager.getHeightPercent());
-        right = (int) (size * AutoLayoutManager.getWidthPercent());
-        bottom = (int) (size * AutoLayoutManager.getHeightPercent());
+
+        int left = (int) (size * AutoLayoutManager.getWidthPercent());
+        int top = (int) (size * AutoLayoutManager.getHeightPercent());
+        int right = (int) (size * AutoLayoutManager.getWidthPercent());
+        int bottom = (int) (size * AutoLayoutManager.getHeightPercent());
+
         if (baseHeight == WIDTH) {
             top = (int) (size * AutoLayoutManager.getWidthPercent());
             bottom = (int) (size * AutoLayoutManager.getWidthPercent());

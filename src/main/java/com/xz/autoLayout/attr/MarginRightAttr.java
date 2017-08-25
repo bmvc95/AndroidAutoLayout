@@ -15,6 +15,8 @@ public class MarginRightAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if(isDefault||baseWidth==SELF){
@@ -25,12 +27,8 @@ public class MarginRightAttr extends AutoAttr {
         }
         ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
         int right = (int) (size * AutoLayoutManager.getWidthPercent());
-        if (baseWidth == HEIGHT) {
+        if (baseWidth == HEIGHT||!isVertical) {
             right = (int) (size * AutoLayoutManager.getHeightPercent());
-
-
-        } else if (baseWidth == SELF) {
-            right = lp.rightMargin;
         }
         lp.rightMargin = right;
     }

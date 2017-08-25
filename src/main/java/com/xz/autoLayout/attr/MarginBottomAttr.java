@@ -15,6 +15,8 @@ public class MarginBottomAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if (isDefault || baseHeight == SELF) {
@@ -29,13 +31,9 @@ public class MarginBottomAttr extends AutoAttr {
         int bottom = (int) (size * AutoLayoutManager.getHeightPercent());
 
 
-        if (baseHeight == WIDTH) {
-
+        if (baseHeight == WIDTH||!isVertical) {
 
             bottom = (int) (size * AutoLayoutManager.getWidthPercent());
-        } else if (baseHeight == SELF) {
-
-            bottom = lp.bottomMargin;
         }
 
         lp.bottomMargin = bottom;

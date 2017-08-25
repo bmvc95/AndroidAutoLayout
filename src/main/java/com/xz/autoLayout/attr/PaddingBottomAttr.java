@@ -14,20 +14,19 @@ public class PaddingBottomAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if (isDefault||baseHeight==SELF) {
             return;
         }
-        int bottom = 0;
-        bottom = (int) (size * AutoLayoutManager.getHeightPercent());
+        int  bottom = (int) (size * AutoLayoutManager.getHeightPercent());
 
-        if (baseHeight == WIDTH) {
+        if (baseHeight == WIDTH||!isVertical) {
             bottom = (int) (size * AutoLayoutManager.getWidthPercent());
         }
-        else if(baseHeight==SELF){
-            bottom = v.getPaddingBottom();
-        }
+
 
 
         v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(),bottom);

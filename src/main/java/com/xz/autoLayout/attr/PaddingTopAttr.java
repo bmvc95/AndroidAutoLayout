@@ -14,19 +14,18 @@ public class PaddingTopAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if (isDefault||baseHeight==SELF) {
             return;
         }
-        int top = 0;
-        top = (int) (size * AutoLayoutManager.getHeightPercent());
+
+        int top = (int) (size * AutoLayoutManager.getHeightPercent());
 
         if (baseHeight == WIDTH) {
             top = (int) (size * AutoLayoutManager.getWidthPercent());
-        }
-        else if(baseHeight==SELF){
-            top = v.getPaddingTop();
         }
 
 

@@ -15,6 +15,8 @@ public class MarginAttr extends AutoAttr {
         super(isDefault, baseWidth, baseHeight, size);
     }
 
+
+
     @Override
     public void auto(View v) {
         if (isDefault) {
@@ -32,7 +34,6 @@ public class MarginAttr extends AutoAttr {
 
         if (baseWidth == HEIGHT) {
             left = (int) (size * AutoLayoutManager.getHeightPercent());
-
             right = (int) (size * AutoLayoutManager.getHeightPercent());
         } else if (baseWidth == SELF) {
             left = lp.leftMargin;
