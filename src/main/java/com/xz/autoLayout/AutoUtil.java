@@ -30,6 +30,7 @@ public class AutoUtil {
     private final static String MB = "!mb";
 
     private final static String P = "!p";
+
     private final static String PL = "!pl";
     private final static String PT = "!pt";
     private final static String PR = "!pr";
@@ -300,9 +301,9 @@ public class AutoUtil {
         if (v instanceof TextView) {
             float size = ((TextView) v).getTextSize();
             if (base == WIDTH) {
-                size = size * AutoLayoutManager.getWidthPercent()*4/5;
+                size = size * AutoLayoutManager.getWidthPercent()*5/6;
             } else if (base == HEIGHT) {
-                size = size * AutoLayoutManager.getHeightPercent()*4/5;
+                size = size * AutoLayoutManager.getHeightPercent()*5/6;
             }
             ((TextView) v).setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         }

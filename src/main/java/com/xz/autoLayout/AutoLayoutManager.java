@@ -35,9 +35,6 @@ public class AutoLayoutManager {
         portWidthPercent = deviceWidth * 1f / width;
         portHeightPercent = deviceHeight * 1f / height;
 
-
-        Log.d("xz",deviceWidth+","+width);
-        Log.d("xz",deviceHeight+","+height);
         setScreenPortrait(true);
     }
 
