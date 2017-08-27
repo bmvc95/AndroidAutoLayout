@@ -24,27 +24,24 @@ public class AutoLinearLayout extends LinearLayout implements IAuto {
 
     public AutoLinearLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+
     }
 
     public AutoLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+
     }
 
     @TargetApi(value = Build.VERSION_CODES.LOLLIPOP)
     public AutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+
     }
 
-    private void init(){
-        post(new Runnable() {
-            @Override
-            public void run() {
-                AutoUtil.auto(AutoLinearLayout.this);
-            }
-        });
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        AutoUtil.auto(this);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.xz.autoLayout;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 
-
+import java.lang.annotation.Target;
 import java.util.List;
 
 /**
@@ -24,27 +26,25 @@ public class AutoFrameLayout extends FrameLayout implements IAuto {
 
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+
     }
 
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
-    }
 
+    }
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public AutoFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+
     }
 
 
-    private void init(){
-        post(new Runnable() {
-            @Override
-            public void run() {
-                AutoUtil.auto(AutoFrameLayout.this);
-            }
-        });
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        AutoUtil.auto(this);
     }
 
     @Override

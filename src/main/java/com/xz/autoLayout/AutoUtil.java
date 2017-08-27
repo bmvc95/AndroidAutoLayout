@@ -133,7 +133,6 @@ public class AutoUtil {
     }
 
     public static void auto(View v) {
-
         AutoLayoutManager.setScreenPortrait(AutoUtil.isScreenOriatationPortrait(v.getContext()));
         autoView(v);
     }

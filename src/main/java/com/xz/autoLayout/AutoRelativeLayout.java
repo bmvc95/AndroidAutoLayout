@@ -18,33 +18,25 @@ import java.util.List;
 public class AutoRelativeLayout extends RelativeLayout implements IAuto {
     public AutoRelativeLayout(Context context) {
         super(context);
-        init();
     }
 
     public AutoRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public AutoRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
     @TargetApi(value = Build.VERSION_CODES.LOLLIPOP)
     public AutoRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+    }
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        AutoUtil.auto(this);
     }
 
-
-    private void init(){
-        post(new Runnable() {
-            @Override
-            public void run() {
-                AutoUtil.auto(AutoRelativeLayout.this);
-            }
-        });
-    }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
