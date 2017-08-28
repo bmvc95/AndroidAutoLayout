@@ -4,12 +4,11 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.xz.autoLayout.attr.AutoAttr;
 
-import java.util.Arrays;
+
 import java.util.List;
 
 /**
@@ -32,26 +31,16 @@ public class AutoRelativeLayout extends RelativeLayout implements IAuto {
     public AutoRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-
-
-
     @Override
-    public List<AutoAttr> getAttrs(String[] attrs) {
-
-        return null;
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        AutoUtil.auto(this);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        AutoLayoutInfo autoLayoutInfo = new AutoLayoutInfo(this);
-        autoLayoutInfo.execute(this);
+
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-    }
-
-    @Override
-    public LayoutParams generateLayoutParams(AttributeSet attrs) {
-
-        return super.generateLayoutParams(attrs);
     }
 }
